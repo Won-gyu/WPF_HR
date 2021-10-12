@@ -1,0 +1,68 @@
+﻿<Window x:Class="HR_management.AddOrEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HR_management"
+        mc:Ignorable="d"
+        Title="AddOrEditWindow" Height="332.667" Width="333.333">
+    <Grid HorizontalAlignment="Left" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Width="200" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Content="이름" Margin="6"/>
+            <Label Grid.Row="1" Content="나이" Margin="6"/>
+            <Label Grid.Row="2" Content="직급" Margin="6"/>
+            <Label Grid.Row="3" Content="연봉" Margin="6"/>
+            <Label Grid.Row="4" Content="전화번호" Margin="6"/>
+
+            <TextBox Text="{Binding Name, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" Margin="6"/>
+            <TextBox Text="{Binding Age, Mode=TwoWay}" Grid.Row="1" Grid.Column="1" Margin="6"/>
+            <ComboBox ItemsSource="{Binding Positions}" SelectedItem="{Binding SelectedPosition}" Grid.Row="2" Grid.Column="1" Margin="6"/>
+            <TextBox Text="{Binding Salary, Mode=TwoWay}" Grid.Row="3" Grid.Column="1" Margin="6"/>
+            <TextBox Text="{Binding Telephone, Mode=TwoWay}" Grid.Row="4" Grid.Column="1" Margin="6"/>
+
+        </Grid>
+        <StackPanel  Grid.Row="1" Orientation="Horizontal">
+            <Label Grid.Row="0" Content="업무 이해도" Margin="0,6"/>
+            <ComboBox ItemsSource="{Binding Rates}" SelectedItem="{Binding EvaluationPoint_WorkUnderstanding}" Margin="6" HorizontalContentAlignment="Center"/>
+
+            <Label Grid.Row="0" Content="적극성" Margin="0, 6"/>
+            <ComboBox ItemsSource="{Binding Rates}" SelectedItem="{Binding EvaluationPoint_positiveness}" Margin="6" HorizontalContentAlignment="Center"/>
+
+            <Label Grid.Row="0" Content="책임감" Margin="0, 6"/>
+            <ComboBox ItemsSource="{Binding Rates}" SelectedItem="{Binding EvaluationPoint_responsibility}" Margin="6" HorizontalContentAlignment="Center"/>
+
+        </StackPanel>
+        <StackPanel  Grid.Row="2" Orientation="Horizontal">
+            <Label Grid.Row="0" Content="독창성" Margin="0, 6"/>
+            <ComboBox ItemsSource="{Binding Rates}" SelectedItem="{Binding EvaluationPoint_Originality}" Margin="6" HorizontalContentAlignment="Center"/>
+
+            <Label Grid.Row="0" Content="노력도" Margin="0, 6"/>
+            <ComboBox ItemsSource="{Binding Rates}" SelectedItem="{Binding EvaluationPoint_Effort}" Margin="6" HorizontalContentAlignment="Center"/>
+
+            <Label Grid.Row="0" Content="근면성" Margin="0, 6"/>
+            <ComboBox ItemsSource="{Binding Rates}" SelectedItem="{Binding EvaluationPoint_Diligence}" Margin="6" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <Button Command="{Binding AddOrEditHumanCommand}" Content="{Binding FinishButtonContent}" Height="25" Width="100"/>
+        </StackPanel>
+    </Grid>
+</Window>

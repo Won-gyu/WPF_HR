@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="HR_management.HumanAbilityGraph"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HR_management"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <StackPanel>
+        <Canvas x:Name="AbilityGraph" Height="150" Width="150" Margin="25,25">
+            <Label Content="책임감" Canvas.Left="-60" Canvas.Top="24"/>
+            <Label Content="{Binding SelectedWorker.EvaluationPoint_responsibility}" Canvas.Left="-21" Canvas.Top="24"/>
+
+            <Label Content="근면성" Canvas.Left="36" Canvas.Top="-22"/>
+            <Label Content="{Binding SelectedWorker.EvaluationPoint_Diligence}" Canvas.Left="76" Canvas.Top="-21"/>
+
+            <Label Content="노력도" Canvas.Left="151" Canvas.Top="32"/>
+            <Label Content="{Binding SelectedWorker.EvaluationPoint_Effort}" Canvas.Left="192" Canvas.Top="34"/>
+
+            <Label Content="독창성" Canvas.Left="152" Canvas.Top="92"/>
+            <Label Content="{Binding SelectedWorker.EvaluationPoint_Originality}" Canvas.Left="193" Canvas.Top="92"/>
+
+            <Label Content="적극성" Canvas.Left="36" Canvas.Top="146"/>
+            <Label Content="{Binding SelectedWorker.EvaluationPoint_positiveness}" Canvas.Left="79" Canvas.Top="145"/>
+
+            <Label Content="업무 이해도" Canvas.Left="-88" Canvas.Top="125"/>
+            <Label Content="{Binding SelectedWorker.EvaluationPoint_WorkUnderstanding}" Canvas.Left="-17" Canvas.Top="125"/>
+
+            <Line 
+    X1="0" Y1="40"
+    X2="75" Y2="0"
+    Stroke="Black"
+    StrokeThickness="4" />
+            <Line 
+    X1="75" Y1="0"
+    X2="150" Y2="40"
+    Stroke="Black"
+    StrokeThickness="4" />
+            <Line 
+    X1="150" Y1="40"
+    X2="150" Y2="110"
+    Stroke="Black"
+    StrokeThickness="4" />
+            <Line 
+    X1="150" Y1="110"
+    X2="75" Y2="150"
+    Stroke="Black"
+    StrokeThickness="4" />
+            <Line 
+    X1="75" Y1="150"
+    X2="0" Y2="110"
+    Stroke="Black"
+    StrokeThickness="4" />
+            <Line 
+    X1="0" Y1="110"
+    X2="0" Y2="40"
+    Stroke="Black"
+    StrokeThickness="4" />
+
+            <Line 
+    X1="{Binding ProfileGraphPos_WorkUnderstanding.x}" Y1="{Binding ProfileGraphPos_WorkUnderstanding.y}"
+    X2="{Binding ProfileGraphPos_responsibility.x}" Y2="{Binding ProfileGraphPos_responsibility.y}"
+    Stroke="Blue"
+    StrokeThickness="4" />
+            <Line 
+    X1="{Binding ProfileGraphPos_responsibility.x}" Y1="{Binding ProfileGraphPos_responsibility.y}"
+    X2="{Binding ProfileGraphPos_Diligence.x}" Y2="{Binding ProfileGraphPos_Diligence.y}"
+    Stroke="Blue"
+    StrokeThickness="4" />
+            <Line 
+    X1="{Binding ProfileGraphPos_Diligence.x}" Y1="{Binding ProfileGraphPos_Diligence.y}"
+    X2="{Binding ProfileGraphPos_Effort.x}" Y2="{Binding ProfileGraphPos_Effort.y}"
+    Stroke="Blue"
+    StrokeThickness="4" />
+            <Line 
+    X1="{Binding ProfileGraphPos_Effort.x}" Y1="{Binding ProfileGraphPos_Effort.y}"
+    X2="{Binding ProfileGraphPos_Originality.x}" Y2="{Binding ProfileGraphPos_Originality.y}"
+    Stroke="Blue"
+    StrokeThickness="4" />
+            <Line 
+    X1="{Binding ProfileGraphPos_Originality.x}" Y1="{Binding ProfileGraphPos_Originality.y}"
+    X2="{Binding ProfileGraphPos_positiveness.x}" Y2="{Binding ProfileGraphPos_positiveness.y}"
+    Stroke="Blue"
+    StrokeThickness="4" />
+            <Line 
+    X1="{Binding ProfileGraphPos_positiveness.x}" Y1="{Binding ProfileGraphPos_positiveness.y}"
+    X2="{Binding ProfileGraphPos_WorkUnderstanding.x}" Y2="{Binding ProfileGraphPos_WorkUnderstanding.y}"
+    Stroke="Blue"
+    StrokeThickness="4" />
+        </Canvas>
+    </StackPanel>
+</UserControl>
